@@ -1,6 +1,6 @@
-import express from "express";
-import bodyParser from "body-parser";
-import path from "path";
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,4 +33,8 @@ app.use((req, res, next) => {
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Lyssnar på port ${PORT}`);
 });
