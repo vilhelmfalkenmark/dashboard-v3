@@ -1,0 +1,61 @@
+@import "variables/colors.css";
+@import "normalize";
+
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%; /* So we get 1rem = 10px */
+}
+body {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p,
+menu,
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/**
+* Win7 IE11 svg use bug, see:
+* https://connect.microsoft.com/IE/feedback/details/796745/mouse-events-are-not-delivered-at-all-anymore-when-inside-an-svg-a-use-is-removed-from-the-dom
+*/
+use {
+  pointer-events: none;
+}

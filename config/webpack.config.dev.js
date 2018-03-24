@@ -88,7 +88,8 @@ module.exports = {
     extensions: [".web.js", ".js", ".json", ".web.jsx", ".jsx"],
     alias: {
       reduxStore: path.resolve(paths.appSrc, "reduxStore"),
-      layout: path.resolve(paths.appSrc, "layout")
+      layout: path.resolve(paths.appSrc, "layout"),
+      components: path.resolve(paths.appSrc, "components")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

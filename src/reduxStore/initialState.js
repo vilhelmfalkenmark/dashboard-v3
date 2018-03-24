@@ -1,5 +1,11 @@
 const initialState = {
-  departures: [],
+  departures: {
+    test: "Tjena från redux store",
+    fetching: false,
+    fulfilled: false,
+    error: false,
+    data: []
+  },
   weather: []
 };
 
