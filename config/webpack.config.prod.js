@@ -167,9 +167,7 @@ module.exports = {
                   sourceMap: shouldUseSourceMap,
                   // CSS Modules https://github.com/css-modules/css-modules
                   modules: true,
-                  localIdentName: true
-                    ? "[name]_[local]_[hash:base64:3]"
-                    : "[hash:base64:4]"
+                  localIdentName: "[hash:base64:5]"
                 }
               },
               {
