@@ -1,6 +1,6 @@
 require("babel-register")({
   ignore: [/(node_modules)/],
-  presets: ["es2015"],
+  presets: ["es2015", "stage-0"],
   plugins: [
     [
       "babel-plugin-inline-import",

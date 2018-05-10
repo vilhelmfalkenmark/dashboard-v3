@@ -1,0 +1,25 @@
+type Person {
+  id: Int!
+  name: String
+}
+
+input personId {
+  id: Int!
+}
+
+type Station {
+  Name: String
+  SiteId: String
+  Type: String
+  X: String
+  Y: String
+}
+
+input stationNameQuery {
+  stationName: String!
+}
+
+extend type Query {
+  test(params: personId): Person
+  searchStationByName(params: stationNameQuery): [Station]
+}
