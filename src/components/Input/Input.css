@@ -1,0 +1,71 @@
+@import "variables/colors";
+@import "variables/sizes";
+
+.container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  z-index: 1;
+  font-size: var(--font-size-s);
+  display: block;
+  color: var(--color-medium-grey);
+  position: relative;
+  transform: translateY(3rem);
+  transition: transform 0.2s ease;
+  &.isFocused {
+    color: var(--color-green);
+    transform: translateY(0);
+  }
+}
+
+/* The actual input element */
+.field {
+  z-index: 2;
+  position: relative;
+  outline: none;
+  outline: 0;
+  display: block;
+  line-height: 1.2rem;
+  width: 100%;
+  height: 4rem;
+  background-color: transparent;
+  font-size: var(--font-size-m);
+  border: none;
+  padding: 0.7rem 0.5rem;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 0;
+  &:focus {
+    + .line:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+    + .label {
+      transform: translateY(0);
+    }
+  }
+}
+
+.line {
+  display: block;
+  height: 2px;
+  background-color: var(--color-grey-extra-light);
+  display: block;
+  margin-top: 0;
+  width: 100%;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: var(--color-green);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out;
+  }
+}

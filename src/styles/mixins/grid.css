@@ -1,0 +1,31 @@
+/* 
+------------------------------------------
+The column container
+------------------------------------------
+*/
+@define-mixin flexRow $margin: 1rem {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: calc($margin/2 * -1);
+  margin-right: calc($margin/2 * -1);
+}
+
+/* 
+------------------------------------------
+Even amount of cols
+------------------------------------------
+*/
+@define-mixin flexGtrCol $columns: 2, $gutter: 1rem {
+  flex-basis: calc(1 / $columns * 100% - $gutter);
+  margin: 0 calc($gutter/2) $gutter calc($gutter/2);
+}
+
+/* 
+------------------------------------------
+If we want the col to take up 2 of 3 for example
+------------------------------------------
+*/
+@define-mixin flexGtrColSpan $span: 2, $of: 3, $gutter: 1rem {
+  flex-basis: calc($span/$of * 100% - $gutter);
+  margin: 0 calc($gutter/2) $gutter calc($gutter/2);
+}

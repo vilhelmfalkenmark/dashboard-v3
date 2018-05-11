@@ -18,7 +18,7 @@
   --color-grey-extra-light: rgb(235, 235, 235);
   --color-grey-light: rgb(199, 198, 197);
   --color-grey: rgb(155, 155, 155);
-  --color-grey-dark: rgb(157, 157, 157);
+  --color-medium-grey: rgb(157, 157, 157);
 
   /* Transparent grey. Used for shadow drops and hover effects */
   --color-shadow: rgba(0, 0, 0, 0.75);

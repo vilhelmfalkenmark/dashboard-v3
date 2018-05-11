@@ -5,9 +5,9 @@ import s from "./Root.css";
 
 export const RootComponent = () => (
   <div className={s({ container: true })}>
-    <h1>Första commiten</h1>
-    <p className={s({ text: true })}>Första commiten</p>
-    <Departures />
+    <main className={s({ grid: true })}>
+      <Departures />
+    </main>
   </div>
 );
 

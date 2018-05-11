@@ -1,0 +1,10 @@
+@import "variables/sizes";
+
+/* 
+------------------------------------------
+Used for <h2>
+------------------------------------------
+*/
+@define-mixin heading2 {
+  font-size: var(--font-size-l);
+}

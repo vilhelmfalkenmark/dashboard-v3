@@ -1,4 +1,6 @@
-@import "variables/colors.css";
+@import "variables/colors";
+@import "variables/sizes";
+@import "mixins/grid";
 @import "normalize";
 
 html {
@@ -12,14 +14,21 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
   background-color: var(--color-background);
   color: var(--color-text);
-  line-height: 1.5;
   min-height: 100vh;
+  line-height: 1.5;
   text-size-adjust: 100%;
+}
+
+.grid {
+  @mixin flexRow;
+
+  padding: var(--default-margin);
 }
 
 *,

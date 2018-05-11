@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "reduxStore/store";
 import { onInsertCssHandler } from "layout/WithCss";
 import WithCssContext from "layout/WithCssContext";
-import Root from "layout/Root";
+import Root from "./Root";
 import registerServiceWorker from "./registerServiceWorker";
 
 render(

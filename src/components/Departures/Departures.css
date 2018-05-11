@@ -1,3 +1,15 @@
+@import "mixins/grid";
+@import "mixins/card";
+@import "mixins/typography";
+
 .container {
-  color: red;
+  @mixin flexGtrColSpan 2, 3, 2rem;
+
+  @mixin card;
+}
+
+.heading {
+  @mixin heading2;
+
+  margin-bottom: var(--default-margin);
 }
