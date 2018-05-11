@@ -1,8 +1,8 @@
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import express from "express";
 import bodyParser from "body-parser";
-import path from "path";
-
+// import path from "path";
+import cors from "cors";
 import config from "./config";
 import schema from "./schema";
 
@@ -25,24 +25,7 @@ const PORT = process.env.PORT || 5000;
  * HANDLE CORS
  */
 //////////////////////////////////////////////////
-server.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://guarded-plateau-76604.herokuapp.com",
-    "http://localhost:3000",
-    "http://localhost:8080",
-    "http://johannaochville.se"
-  ];
-
-  if (allowedOrigins.indexOf(req.headers.origin) !== -1) {
-    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
-  }
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type,application/json, Accept"
-  );
-  next();
-});
+server.use(cors());
 
 //////////////////////////////////////////////////
 /**

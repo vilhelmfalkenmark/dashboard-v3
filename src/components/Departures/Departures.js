@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+
 import WithCss from "layout/WithCss";
 import Input from "components/Input";
+
+import { SEARCH_STATION_BY_NAME } from "./Departures.schema";
 import s from "./Departures.css";
 import DeparturesTypes from "./Departures.propTypes";
 
@@ -16,10 +19,18 @@ class Departures extends Component {
   }
 
   searchStationByName() {
-    console.log(this.state.searchStation);
+    // this.props.client.query({
+    //   query: SEARCH_STATION_BY_NAME,
+    //   variables: {
+    //     stationNameQuery: "Odenplan"
+    //   }
+    // });
   }
 
   render() {
+    console.log(this.props, " <-- this.props");
+    const { data } = this.props;
+
     return (
       <div className={s({ container: true })}>
         <h2 className={s({ heading: true })}>Avgångar</h2>
@@ -36,6 +47,15 @@ class Departures extends Component {
           }
         />
         <button onClick={this.searchStationByName}>Sök stationer</button>
+        {!data.loading && data.stationsByName ? (
+          <ul>
+            {data.stationsByName.map((station, i) => (
+              <li key={i}>{station.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>laddar</p>
+        )}
       </div>
     );
   }

@@ -87,7 +87,8 @@ module.exports = {
     // for React Native Web.
     extensions: [".web.js", ".js", ".json", ".web.jsx", ".jsx"],
     alias: {
-      reduxStore: path.resolve(paths.appSrc, "reduxStore"),
+      store: path.resolve(paths.appSrc, "store"),
+      apollo: path.resolve(paths.appSrc, "apollo"),
       layout: path.resolve(paths.appSrc, "layout"),
       components: path.resolve(paths.appSrc, "components")
     },

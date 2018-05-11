@@ -1,4 +1,4 @@
-import initialState from "reduxStore/initialState";
+import initialState from "store/initialState";
 
 const departures = (state = initialState.departures, action) => {
   return state;
