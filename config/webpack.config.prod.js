@@ -322,11 +322,7 @@ module.exports = {
       }
     }),
     new webpack.DefinePlugin({
-      "process.env.BRAND": JSON.stringify(process.env.BRAND),
-      "process.env.PROXY_HTTPS_URL": JSON.stringify(
-        process.env.PROXY_HTTPS_URL
-      ),
-      "process.env.PROXY_WSS_URL": JSON.stringify(process.env.PROXY_WSS_URL),
+      "process.env.API_END_POINT": JSON.stringify(process.env.API_END_POINT),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
     })
   ],
