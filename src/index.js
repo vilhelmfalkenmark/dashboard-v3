@@ -8,7 +8,7 @@ import client from "./apollo";
 
 import WithCssContext from "layout/WithCssContext";
 import Root from "components/Root";
-import registerServiceWorker from "./registerServiceWorker";
+// import registerServiceWorker from "./registerServiceWorker";
 
 render(
   <WithCssContext onInsertCss={onInsertCssHandler}>
@@ -22,4 +22,4 @@ render(
   document.getElementById("root")
 );
 
-registerServiceWorker();
+// registerServiceWorker();
