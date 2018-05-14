@@ -76,8 +76,7 @@
     "start": "BABEL_ENV=production node server/bootstrap.js",
     "client":
       "NODE_ENV=development API_END_POINT=http://localhost:5000 node scripts/start.js",
-    "build":
-      "API_END_POINT=https://dashboard-v3.herokuapp.com node scripts/build.js",
+    "build": "node scripts/build.js",
     "server": "BABEL_ENV=development nodemon server/bootstrap.js",
     "test": "node scripts/test.js --env=jsdom",
     "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
