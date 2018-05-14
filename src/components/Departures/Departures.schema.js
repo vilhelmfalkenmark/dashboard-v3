@@ -11,13 +11,13 @@ export const SEARCH_STATION_BY_NAME = gql`
   }
 `;
 
-// export default compose(
-//   withApollo,
-//   graphql(SEARCH_STATION_BY_NAME, {
-//     options: () => ({
-//       variables: {
-//         stationName: "centralen"
-//       }
-//     })
-//   })
-// )(Departures);
+export default compose(
+  withApollo
+  // graphql(SEARCH_STATION_BY_NAME, {
+  //   options: () => ({
+  //     variables: {
+  //       stationName: "centralen"
+  //     }
+  //   })
+  // })
+)(Departures);

@@ -16,9 +16,6 @@ class Departures extends Component {
   onStationsFetched = stationsByName => this.setState({ stationsByName });
 
   render() {
-    // console.log(this.props, " <-- this.props");
-    // console.log(this.state, " <-- this.state");
-    // const { data } = this.props;
     const { stationsByName } = this.state;
 
     return (

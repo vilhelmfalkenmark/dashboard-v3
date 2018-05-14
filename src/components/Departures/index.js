@@ -1,1 +1,1 @@
-export { default } from "./Departures";
+export { default } from "./Departures.schema";
