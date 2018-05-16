@@ -1,6 +1,6 @@
 // import { PubSub, withFilter } from "graphql-subscriptions";
 import { mergeDeepWith, concat } from "ramda";
-import rootTypeDefs from "./schema.graphql";
+import rootTypeDefs from "./rootTypeDefs";
 
 import HTTPconnector from "../connector";
 import endpoints from "../connector/endpoints";
@@ -8,7 +8,7 @@ import endpoints from "../connector/endpoints";
 // IMPORT ENTITIES
 import sl from "./sl";
 
-export default () => {
+export default database => {
   const connector = HTTPconnector();
 
   // INITIALIZE ENTITIES
@@ -16,7 +16,8 @@ export default () => {
   // Statens Lokaltrafik
   const slEntity = sl({
     connector,
-    endpoints: endpoints.sl
+    endpoints: endpoints.sl,
+    database
   });
 
   // All initialized entities should be listed in this array

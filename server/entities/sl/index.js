@@ -2,8 +2,8 @@ import Model from "./model";
 import Resolvers from "./resolvers";
 // import typeDefs from "./schema.graphql";
 
-export default ({ connector, endpoints }) => {
-  const model = Model({ connector, endpoints });
+export default ({ connector, endpoints, database }) => {
+  const model = Model({ connector, endpoints, database });
 
   return {
     resolvers: Resolvers({ model }),
@@ -24,8 +24,20 @@ export default ({ connector, endpoints }) => {
       Y: String
     }
 
+    type StationId {
+      stationId: String
+    }
+
     input stationNameQuery {
       stationName: String!
+    }
+
+    input stationIdMutation {
+      stationId: String!
+    }
+
+    extend type Mutation {
+      addFavoriteStation(params: stationIdMutation): StationId
     }
 
     extend type Query {
