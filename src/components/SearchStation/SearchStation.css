@@ -1,0 +1,18 @@
+@import "variables/sizes";
+@import "variables/breakpoints";
+
+.container {
+  width: 100%;
+}
+
+.heading {
+  margin-bottom: var(--half-default-gutter);
+}
+
+.searchFieldContainer {
+  padding: var(--half-default-gutter);
+
+  @media (--viewport-min-768) {
+    padding: 0;
+  }
+}

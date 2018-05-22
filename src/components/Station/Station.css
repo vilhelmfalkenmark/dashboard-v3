@@ -1,0 +1,123 @@
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+@import "mixins/buttons";
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0.1rem solid var(--color-border);
+}
+
+.left {
+  display: flex;
+  width: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background: transparent;
+  display: flex;
+  border: none;
+  outline: 0;
+  align-items: center;
+}
+
+.favoriteButton {
+  justify-content: center;
+}
+
+.heart {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+@keyframes heartPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  25% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heartSolid {
+  fill: var(--color-red);
+
+  &_newFavoriteStation {
+    animation: heartPulse 0.6s ease-in forwards;
+  }
+}
+
+.showDeparturesButton {
+  flex: 1;
+  justify-content: space-between;
+  padding: var(--default-gutter) var(--half-default-gutter);
+  transition: background 0.2s ease;
+
+  &:active {
+    background: var(--color-grey-extra-light);
+  }
+
+  @media (--viewport-min-768) {
+    padding: var(--default-gutter);
+  }
+}
+
+.stationInfoContainer {
+  text-align: left;
+}
+
+.stationName {
+  font-size: var(--font-size-s);
+
+  @media (--viewport-min-768) {
+    font-size: var(--font-size-m);
+  }
+}
+
+.stationDistance {
+  @media (--viewport-max-767) {
+    margin-top: 0.5rem;
+    font-size: var(--font-size-xs);
+    display: block;
+  }
+}
+
+.rightSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showDepartureText {
+  display: none;
+
+  @media (--viewport-min-768) {
+    display: block;
+  }
+}
+
+.arrowRight {
+  margin-left: var(--half-default-gutter);
+  height: 1.6rem;
+  width: 1.6rem;
+}

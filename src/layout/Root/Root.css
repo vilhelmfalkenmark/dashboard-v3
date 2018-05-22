@@ -1,20 +1,17 @@
 @import "variables/colors";
 @import "variables/sizes";
+@import "variables/breakpoints";
 @import "mixins/grid";
 @import "normalize";
 
 html {
-  position: relative;
   height: 100%;
   width: 100%;
   font-size: 62.5%; /* So we get 1rem = 10px */
 }
 body {
-  overflow: hidden;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-size: var(--font-size-m);
+  font-family: Roboto, sans-serif;
 }
 
 .container {
@@ -26,9 +23,13 @@ body {
 }
 
 .grid {
-  @mixin flexRow;
+  padding: 0;
 
-  padding: var(--default-margin);
+  @media (--viewport-min-768) {
+    @mixin flexRow;
+
+    padding: var(--default-gutter);
+  }
 }
 
 *,

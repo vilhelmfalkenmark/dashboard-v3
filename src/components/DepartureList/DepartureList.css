@@ -1,0 +1,54 @@
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+
+.container {
+  margin-top: 0;
+}
+
+.header {
+  width: 100%;
+
+  margin-bottom: var(--default-gutter);
+
+  @media (--viewport-min-768) {
+    padding: var(--default-gutter) 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+}
+
+.goBackButton {
+  background: transparent;
+  outline: 0;
+  border: none;
+
+  padding: var(--default-gutter) var(--default-gutter) var(--default-gutter) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    background: var(--color-grey-extra-light);
+  }
+
+  @media (--viewport-min-768) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.arrowLeft {
+  margin-right: var(--half-default-gutter);
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.stationName {
+  margin: 0;
+  font-size: 2rem;
+}

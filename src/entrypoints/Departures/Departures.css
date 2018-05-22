@@ -1,0 +1,67 @@
+@import "mixins/grid";
+@import "mixins/card";
+@import "mixins/typography";
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+
+.container {
+  @mixin card;
+
+  min-height: 40rem;
+
+  @media (--viewport-min-768) {
+    @mixin flexGtrColSpan 2, 3, var(--default-gutter);
+  }
+}
+
+.navBar {
+  display: flex;
+  flex-flow: row wrap;
+  position: sticky;
+
+  @media (--viewport-min-768) {
+    position: static;
+  }
+}
+
+.navButton {
+  flex-grow: 1;
+  font-size: var(--font-size-s);
+  height: 4rem;
+
+  @media (--viewport-min-768) {
+    height: 5rem;
+    font-size: var(--font-size-m);
+  }
+}
+
+.icon {
+  height: 1.7rem;
+  width: 1.7rem;
+  fill: var(--color-white);
+
+  @media (--viewport-min-768) {
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-right: var(--half-default-gutter);
+  }
+}
+
+.navText {
+  @media (--viewport-max-767) {
+    display: none;
+  }
+}
+
+.content {
+  padding: var(--half-default-gutter);
+
+  @media (--viewport-min-768) {
+    padding: var(--default-gutter);
+  }
+}
+
+.overflow {
+  overflow-x: hidden;
+}

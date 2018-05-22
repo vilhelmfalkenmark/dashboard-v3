@@ -1,7 +1,7 @@
 :root {
-  --half-default-margin: 1rem;
-  --default-margin: 2rem;
-  --double-default-margin: 2rem;
+  --half-default-gutter: 1rem;
+  --default-gutter: 2rem;
+  --double-default-gutter: 4rem;
 
   --page-max-width: 120rem;
   --content-max-width: 56rem;

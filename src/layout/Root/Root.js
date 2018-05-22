@@ -1,6 +1,6 @@
 import React from "react";
 import WithCss from "layout/WithCss";
-import Departures from "components/Departures";
+import Departures from "entrypoints/Departures";
 import s from "./Root.css";
 
 export const RootComponent = () => (

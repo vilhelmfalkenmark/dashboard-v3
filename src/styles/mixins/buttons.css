@@ -1,0 +1,44 @@
+@import "variables/colors";
+
+@keyframes pulse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@define-mixin transparentButton $gradient-background: var(--color-grey-light),
+  $gradient-pulse: var(--color-grey-extra-light) {
+  outline: 0;
+  border: none;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    position: absolute;
+  }
+
+  &:active {
+    &::after {
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-name: pulse;
+      background-image: linear-gradient(
+        to right,
+        $gradient-background 0%,
+        $gradient-pulse 33%,
+        $gradient-background 66%,
+        $gradient-background 100%
+      );
+      background-repeat: no-repeat;
+      display: block;
+    }
+  }
+}
