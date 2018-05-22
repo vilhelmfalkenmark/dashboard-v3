@@ -88,7 +88,7 @@ module.exports = {
     extensions: [".web.js", ".js", ".json", ".web.jsx", ".jsx"],
     alias: {
       store: path.resolve(paths.appSrc, "store"),
-      apollo: path.resolve(paths.appSrc, "apolloTEST"),
+      apollo: path.resolve(paths.appSrc, "apollo"),
       layout: path.resolve(paths.appSrc, "layout"),
       components: path.resolve(paths.appSrc, "components"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
