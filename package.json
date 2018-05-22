@@ -5,7 +5,8 @@
   "repository": "https://github.com/vilhelmfalkenmark/dashboard-v3",
   "description": "My dashboard application built on react, graphQL, node.js",
   "engines": {
-    "node": "8.9.x"
+    "node": "8.9.x",
+    "yarn": "1.6.x"
   },
   "dependencies": {
     "apollo-client": "^2.3.1",
@@ -87,7 +88,7 @@
     "server": "BABEL_ENV=development nodemon server/bootstrap.js",
     "test": "node scripts/test.js --env=jsdom",
     "heroku-postbuild":
-      "yarn install --network-timeout 1000000 --only=dev && yarn install --network-timeout 1000000 && yarn run build"
+      "yarn install --only=dev && yarn install && yarn run build"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
