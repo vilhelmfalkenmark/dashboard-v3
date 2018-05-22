@@ -9,7 +9,6 @@
     "yarn": "1.6.x"
   },
   "dependencies": {
-    "apollo-boost": "^0.1.6",
     "apollo-cache-inmemory": "^1.2.1",
     "apollo-client": "^2.3.1",
     "apollo-link-http": "^1.5.4",
@@ -86,19 +85,17 @@
   },
   "scripts": {
     "start": "BABEL_ENV=production node server/bootstrap.js",
-    "client": "NODE_ENV=development API_END_POINT=http://localhost:5000 node scripts/start.js",
+    "client":
+      "NODE_ENV=development API_END_POINT=http://localhost:5000 node scripts/start.js",
     "build": "node scripts/build.js",
     "server": "BABEL_ENV=development nodemon server/bootstrap.js",
     "test": "node scripts/test.js --env=jsdom",
-    "heroku-postbuild": "yarn install --only=dev && yarn install && yarn run build"
+    "heroku-postbuild":
+      "yarn install --only=dev && yarn install && yarn run build"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -108,11 +105,10 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
+        "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
-    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
@@ -127,9 +123,7 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"
