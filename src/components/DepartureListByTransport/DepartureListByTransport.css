@@ -1,0 +1,62 @@
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+
+.container {
+  margin-bottom: var(--default-gutter);
+}
+
+.heading {
+  margin-bottom: var(--default-gutter);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--half-default-gutter) 0;
+  padding-bottom: var(--half-default-gutter);
+  border-bottom: 0.1rem solid var(--color-grey-extra-light);
+
+  font-size: var(--font-size-s);
+
+  @media (--viewport-min-768) {
+    font-size: var(--font-size-m);
+  }
+}
+
+.lineNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.line {
+  padding: 0.5rem;
+  min-width: 4rem;
+  text-align: center;
+  margin-right: var(--half-default-gutter);
+  color: white;
+
+  &_bus {
+    background: red;
+  }
+
+  &_metro {
+    background: blue;
+  }
+
+  &_train {
+    background: green;
+  }
+}
+
+.showMoreButton {
+  padding: var(--default-gutter);
+  border: none;
+  width: 100%;
+  background: none;
+  outline: 0;
+  text-align: center;
+}

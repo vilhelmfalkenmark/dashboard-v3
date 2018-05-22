@@ -1,9 +1,8 @@
 import Model from "./model";
 import Resolvers from "./resolvers";
-// import typeDefs from "./schema.graphql";
 
-export default ({ connector, endpoints }) => {
-  const model = Model({ connector, endpoints });
+export default ({ connector, endpoints, database }) => {
+  const model = Model({ connector, endpoints, database });
 
   return {
     resolvers: Resolvers({ model }),
@@ -11,9 +10,40 @@ export default ({ connector, endpoints }) => {
       id: Int!
       name: String
     }
-
+    
     input personId {
       id: Int!
+    }
+
+    ##### TYPES #####
+    type Departures {
+      Metros: [Metro]
+      Trains: [Train]
+      Buses: [Bus]
+    }
+
+    type Metro {
+      DisplayTime: String
+      Destination: String
+      LineNumber: String
+      ExpectedDateTime: String
+      TimeTabledDateTime: String
+    }
+
+    type Train {
+      DisplayTime: String
+      Destination: String
+      LineNumber: String
+      ExpectedDateTime: String
+      TimeTabledDateTime: String
+    }
+
+    type Bus {
+      DisplayTime: String
+      Destination: String
+      LineNumber: String
+      ExpectedDateTime: String
+      TimeTabledDateTime: String
     }
 
     type Station {
@@ -24,13 +54,53 @@ export default ({ connector, endpoints }) => {
       Y: String
     }
 
+    type StationByCoordinate {
+      idx: String
+      name: String
+      id: String
+      siteId: String
+      lat: String
+      lon: String
+      dist: String
+    }
+  
+    type FavoriteStation {
+      name: String
+      siteId: String
+
+    }
+
+    ##### INPUT PARAMS ####
+
+    input siteIdQuery {
+      siteId: String
+    }
+
     input stationNameQuery {
-      stationName: String!
+      name: String!
+    }
+
+    input stationCoordinateQuery {
+      lon: Float!
+      lat: Float!
+    }
+
+    input stationIdMutation {
+      name: String!
+      siteId: String!
+    }
+
+    extend type Mutation {
+      saveStationAsFavorite(params: stationIdMutation): Station
+      removeStationFromFavorites(params: stationIdMutation): Station
     }
 
     extend type Query {
       test(params: personId): Person
       searchStationByName(params: stationNameQuery): [Station]
+      searchStationsByCoordinates(params: stationCoordinateQuery): [StationByCoordinate]
+      getDeparturesByStationId(params: siteIdQuery): Departures
+      myFavoriteStations: [FavoriteStation]
     }`
   };
 };

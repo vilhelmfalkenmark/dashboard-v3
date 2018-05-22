@@ -14,14 +14,15 @@
   position: relative;
   transform: translateY(3rem);
   transition: transform 0.2s ease;
-  &.isFocused {
+
+  &_isFocused {
     color: var(--color-green);
     transform: translateY(0);
   }
 }
 
 /* The actual input element */
-.field {
+.input {
   z-index: 2;
   position: relative;
   outline: none;
@@ -37,6 +38,7 @@
   border: none;
   margin-bottom: 0;
   border-radius: 0;
+
   &:focus {
     + .line:before {
       visibility: visible;
@@ -68,4 +70,15 @@
     transform: scaleX(0);
     transition: all 0.2s ease-in-out;
   }
+}
+
+.submitButton {
+  position: absolute;
+  border: none;
+  background: none;
+  outline: 0;
+  color: var(--color-green);
+  right: var(--half-default-gutter);
+  bottom: 1rem;
+  z-index: 10;
 }

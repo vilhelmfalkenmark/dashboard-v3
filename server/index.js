@@ -1,6 +1,7 @@
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import express from "express";
 import bodyParser from "body-parser";
+import mongoDB from "mongodb";
 import path from "path";
 import cors from "cors";
 import config from "./config";
@@ -41,23 +42,35 @@ server.get(/^(?!.*(graphiql|api)).*$/, (req, res) => {
  * SET UP GRAPHQL
  */
 //////////////////////////////////////////////////
+mongoDB.MongoClient.connect(
+  "mongodb://ville:villelabbarmongo@ds159459.mlab.com:59459/dashboard",
+  { useNewUrlParser: true },
+  (err, client) => {
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
 
-// Setup GraphQL
-server.use(
-  config.apiPath,
-  graphqlExpress(req => ({
-    schema: schema()
-  }))
+    const database = client.db("dashboard");
+
+    // Setup GraphQL
+    server.use(
+      config.apiPath,
+      graphqlExpress(req => ({
+        schema: schema(database)
+      }))
+    );
+
+    // Setup Graphiql IDE
+    server.use(
+      config.graphiqlPath,
+      graphiqlExpress({
+        endpointURL: config.apiPath
+      })
+    );
+
+    server.listen(PORT, () => {
+      console.log(`Lyssnar på port ${PORT} och ansluten till mongoDB`);
+    });
+  }
 );
-
-// Setup Graphiql IDE
-server.use(
-  config.graphiqlPath,
-  graphiqlExpress({
-    endpointURL: config.apiPath
-  })
-);
-
-server.listen(PORT, () => {
-  console.log(`Lyssnar på port ${PORT}`);
-});

@@ -90,7 +90,10 @@ module.exports = {
       store: path.resolve(paths.appSrc, "store"),
       apollo: path.resolve(paths.appSrc, "apollo"),
       layout: path.resolve(paths.appSrc, "layout"),
-      components: path.resolve(paths.appSrc, "components")
+      components: path.resolve(paths.appSrc, "components"),
+      entrypoints: path.resolve(paths.appSrc, "entrypoints"),
+      images: path.resolve(paths.appSrc, "images"),
+      utils: path.resolve(paths.appSrc, "utils")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -184,21 +187,6 @@ module.exports = {
                 loader: "svg-sprite-loader",
                 options: {
                   name: "[name]_[hash]"
-                }
-              },
-              {
-                loader: "svgo-loader",
-                options: {
-                  plugins: [
-                    { removeTitle: true },
-                    { convertColors: { shorthex: false } },
-                    { convertPathData: false },
-                    { removeUselessDefs: true },
-                    { convertPathData: true },
-                    { mergePaths: true },
-                    { removeUselessStrokeAndFill: true },
-                    { removeComments: true }
-                  ]
                 }
               }
             ]

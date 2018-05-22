@@ -1,0 +1,17 @@
+/* Min widths */
+@custom-media --viewport-min-0 (min-width: 0);
+@custom-media --viewport-min-375 (min-width: 375px);
+@custom-media --viewport-min-480 (min-width: 480px);
+@custom-media --viewport-min-768 (min-width: 768px);
+@custom-media --viewport-min-870 (min-width: 870px);
+@custom-media --viewport-min-992 (min-width: 992px);
+@custom-media --viewport-min-1100 (min-width: 1100px);
+@custom-media --viewport-min-1200 (min-width: 1200px);
+
+/* Max widths */
+@custom-media --viewport-max-374 (max-width: 374px);
+@custom-media --viewport-max-479 (max-width: 479px);
+@custom-media --viewport-max-767 (max-width: 767px);
+@custom-media --viewport-max-869 (max-width: 869px);
+@custom-media --viewport-max-991 (max-width: 991px);
+@custom-media --viewport-max-1099 (max-width: 1099px);
