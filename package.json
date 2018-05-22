@@ -2,6 +2,11 @@
   "name": "dashboard-v3",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/vilhelmfalkenmark/dashboard-v3",
+  "description": "My dashboard application built on react, graphQL, node.js",
+  "engines": {
+    "node": "8.9.x"
+  },
   "dependencies": {
     "apollo-boost": "^0.1.6",
     "apollo-client": "^2.3.1",
