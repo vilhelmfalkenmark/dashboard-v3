@@ -24,9 +24,11 @@ body {
 
 .grid {
   padding: 0;
+  display: flex;
+  flex-flow: column wrap;
 
   @media (--viewport-min-768) {
-    @mixin flexRow;
+    flex-flow: row wrap;
 
     padding: var(--default-gutter);
   }
