@@ -38,7 +38,6 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "7.4.0",
-    "eslint-plugin-prettier": "^2.6.0",
     "prettier": "1.11.1",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "3.0.2",
@@ -59,7 +58,6 @@
     "postcss-loader": "2.0.8",
     "postcss-mixins": "^6.2.0",
     "postcss-nested": "^3.0.0",
-    "prettier": "1.11.1",
     "promise": "8.0.1",
     "prop-types": "^15.6.1",
     "raf": "3.4.0",
@@ -84,25 +82,19 @@
   },
   "scripts": {
     "start": "BABEL_ENV=production node server/bootstrap.js",
-    "client": "NODE_ENV=development API_END_POINT=http://localhost:5000 node scripts/start.js",
+    "client":
+      "NODE_ENV=development API_END_POINT=http://localhost:5000 node scripts/start.js",
     "build": "node scripts/build.js",
     "server": "BABEL_ENV=development nodemon server/bootstrap.js",
-    "start:test": "BABEL_ENV=production API_END_POINT=http://localhost:5000 node server/bootstrap.js",
+    "start:test":
+      "BABEL_ENV=production API_END_POINT=http://localhost:5000 node server/bootstrap.js",
     "test": "node scripts/test.js --env=jsdom",
-<<<<<<< HEAD
     "heroku-postbuild":
-      "yarn install --only=dev && yarn install && yarn run build"
-=======
-    "heroku-postbuild": "npm install --only=dev && npm install && yarn run build"
->>>>>>> 9cb958ed0a6cecd2924570dc912887e0da8c5094
+      "npm install --only=dev && npm install && yarn run build"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -112,11 +104,10 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
+        "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
-    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
@@ -131,9 +122,7 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"
