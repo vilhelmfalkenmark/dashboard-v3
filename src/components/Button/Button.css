@@ -1,53 +1,40 @@
 @import "variables/sizes";
 @import "variables/colors";
 
-@keyframes anim-in {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes anim-out {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes anim-in-pseudo {
-  0% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes anim-out-pseudo {
-  0% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .container {
-  border: none;
-  outline: none;
-  position: relative;
   z-index: 0;
-  overflow: hidden;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.4s ease;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  border: none;
+  outline: none;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: black;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 0.15;
+    }
+  }
+
+  &:active {
+    &:before {
+      opacity: 0.25;
+    }
+  }
 
   &_circleButton {
     height: 4rem;
@@ -62,62 +49,6 @@
 
   &_iconleft {
     flex-direction: row-reverse;
-  }
-
-  &_blueSolid {
-    color: var(--color-white);
-    background: var(--color-blue);
-  }
-
-  &_lightBlueSolid {
-    color: var(--color-white);
-    background: var(--color-light-blue);
-  }
-
-  &_notAnimated {
-    .anim {
-      animation: anim-out 0.6s;
-
-      &:after {
-        background: black;
-        animation: anim-out-pseudo 0.4s linear forwards;
-      }
-    }
-  }
-
-  &_animated {
-    .anim {
-      animation: anim-in 0.6s;
-
-      &:after {
-        background: black;
-        animation: anim-in-pseudo 0.4s linear forwards;
-      }
-    }
-  }
-}
-
-.anim {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-
-  &:before {
-    position: relative;
-    content: "";
-    display: block;
-    margin-top: 100%;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 50%;
   }
 }
 
