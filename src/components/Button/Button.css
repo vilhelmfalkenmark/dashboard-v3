@@ -3,37 +3,37 @@
 
 @keyframes anim-in {
   0% {
-    width: 0%;
+    transform: scale(0);
   }
   100% {
-    width: 120%;
+    transform: scale(1.5);
   }
 }
 
 @keyframes anim-out {
   0% {
-    width: 0%;
+    transform: scale(0);
   }
   100% {
-    width: 120%;
+    transform: scale(1.5);
   }
 }
 
 @keyframes anim-in-pseudo {
   0% {
-    background: rgba(0, 0, 0, 0.25);
+    opacity: 0.25;
   }
   100% {
-    background: rgba(0, 0, 0, 0);
+    opacity: 0;
   }
 }
 
 @keyframes anim-out-pseudo {
   0% {
-    background: rgba(0, 0, 0, 0.25);
+    opacity: 0.25;
   }
   100% {
-    background: rgba(0, 0, 0, 0);
+    opacity: 0;
   }
 }
 
@@ -48,6 +48,17 @@
   align-items: center;
   justify-content: center;
   transition: background 0.4s ease;
+
+  &_circleButton {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+  }
+
+  &_shadowButton {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  }
 
   &_iconleft {
     flex-direction: row-reverse;
@@ -68,7 +79,8 @@
       animation: anim-out 0.6s;
 
       &:after {
-        animation: anim-out-pseudo 0.6s;
+        background: black;
+        animation: anim-out-pseudo 0.4s linear forwards;
       }
     }
   }
@@ -78,17 +90,17 @@
       animation: anim-in 0.6s;
 
       &:after {
-        animation: anim-in-pseudo 0.6s;
+        background: black;
+        animation: anim-in-pseudo 0.4s linear forwards;
       }
     }
   }
 }
 
 .anim {
-  transform: translateY(-50%) translateX(-50%);
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: -1;
 
   &:before {
@@ -107,4 +119,14 @@
     right: 0;
     border-radius: 50%;
   }
+}
+
+/* 
+------------------------------------------
+Icons
+------------------------------------------
+*/
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
 }

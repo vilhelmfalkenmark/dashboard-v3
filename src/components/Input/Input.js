@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import WithCss from "layout/WithCss";
+import Button from "components/Button";
+
 import s from "./Input.css";
 
 export class Input extends Component {
@@ -9,16 +11,24 @@ export class Input extends Component {
 
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
-  }
-
-  handleOnKeyDown(e) {
-    if (e.key === "Enter" && this.props.handleSubmit) {
-      this.props.handleSubmit();
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleOnChange(e) {
     this.props.inputOnChange(e.target.value);
+  }
+
+  handleOnKeyDown(e) {
+    if (e.key === "Enter" && this.props.submit) {
+      this.handleSubmit();
+    }
+  }
+
+  handleSubmit() {
+    // Dont submit if empty input
+    if (this.props.inputValue) {
+      this.props.submit();
+    }
   }
 
   render() {
@@ -27,7 +37,7 @@ export class Input extends Component {
       inputValue,
       inputName,
       inputDisabled,
-      submitButtonText
+      submitButtonIcon
     } = this.props;
     const { focus } = this.state;
     const inputHtml = [
@@ -46,8 +56,8 @@ export class Input extends Component {
             focus: inputValue ? true : false
           })
         }
-        onKeyDown={event => this.handleOnKeyDown(event)}
-        onChange={event => this.handleOnChange(event)}
+        onKeyDown={this.handleOnKeyDown}
+        onChange={this.handleOnChange}
         className={s({ input: true })}
       />,
       <span className={s.line} key={2} />
@@ -65,13 +75,15 @@ export class Input extends Component {
       <div className={s({ container: true })}>
         {labelHtml}
         {inputHtml}
-        {submitButtonText && (
-          <button
+        {submitButtonIcon && (
+          <Button
+            onClickCallback={this.handleSubmit}
+            icon={submitButtonIcon}
             className={s({ submitButton: true })}
-            onClick={() => this.props.handleSubmit()}
-          >
-            {submitButtonText}
-          </button>
+            iconClassName={s({ icon: true })}
+            circleButton
+            shadowButton
+          />
         )}
       </div>
     );

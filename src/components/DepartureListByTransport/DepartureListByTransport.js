@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import WithCss from "layout/WithCss";
 import Button from "components/Button";
-import { BUTTON_TRANSPARENT } from "utils/constants/buttonTypes";
+import plusIcon from "images/svg/plus.svg";
 
 import s from "./DepartureListByTransport.css";
 
@@ -17,6 +17,10 @@ class DepartureListByTransport extends Component {
   }
 
   showMore() {
+    if (this.state.showCount + 5 > this.props.departures.length) {
+      // this.props.fetchMoreDepartures();
+    }
+
     this.setState({
       showCount: this.state.showCount + 5
     });
@@ -54,12 +58,16 @@ class DepartureListByTransport extends Component {
           ))}
         </ul>
         {showCount < departures.length && (
-          <Button
-            text={"Visa fler"}
-            onClickCallback={this.showMore}
-            type={BUTTON_TRANSPARENT}
-            className={s({ showMoreButton: true })}
-          />
+          <div className={s({ buttonContainer: true })}>
+            <Button
+              onClickCallback={this.showMore}
+              icon={plusIcon}
+              className={s({ showMoreButton: true })}
+              iconClassName={s({ icon: true })}
+              circleButton
+              shadowButton
+            />
+          </div>
         )}
       </div>
     );

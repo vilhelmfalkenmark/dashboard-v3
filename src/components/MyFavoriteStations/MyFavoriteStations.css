@@ -1,9 +1,0 @@
-@import "variables/sizes";
-
-.container {
-  width: 100%;
-}
-
-.heading {
-  margin-bottom: var(--half-default-gutter);
-}

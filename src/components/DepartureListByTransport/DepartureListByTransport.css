@@ -52,11 +52,16 @@
   }
 }
 
-.showMoreButton {
-  padding: var(--default-gutter);
-  border: none;
+.buttonContainer {
   width: 100%;
-  background: none;
-  outline: 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.showMoreButton.showMoreButton {
+  background: var(--color-blue);
+}
+
+.icon.icon {
+  fill: var(--color-white);
 }

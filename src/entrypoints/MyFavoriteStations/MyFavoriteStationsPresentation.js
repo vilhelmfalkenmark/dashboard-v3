@@ -24,38 +24,13 @@ class MyFavoriteStations extends Component {
       name,
       client: this.props.client
     });
-
-    // const { client } = this.props;
-
-    // return (async () => {
-    //   await client.mutate({
-    //     mutation: REMOVE_STATION_FROM_FAVORITES,
-    //     variables: { siteId: siteId, name: name },
-    //     update: (cache, { data: { removedStation } }) => {
-    //       const { myFavoriteStations } = cache.readQuery({
-    //         query: MY_FAVORITE_STATIONS
-    //       });
-    //       cache.writeQuery({
-    //         query: MY_FAVORITE_STATIONS,
-    //         data: {
-    //           myFavoriteStations: myFavoriteStations.filter(station => {
-    //             return (
-    //               station.siteId !== removedStation.siteId &&
-    //               station.name !== removedStation.name
-    //             );
-    //           })
-    //         }
-    //       });
-    //     }
-    //   });
-    // })();
   }
 
   render() {
     return (
       <div
         className={s({
-          container: true
+          presentationContainer: true
         })}
       >
         <StationList

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Input from "components/Input";
 import StationList from "components/StationList";
 import WithDepartureList from "components/WithDepartureList";
+import searchIcon from "images/svg/search.svg";
 
 import { SEARCH_STATION_BY_NAME } from "utils/schemas/departures";
 
@@ -66,23 +67,17 @@ class SearchStation extends Component {
   render() {
     const { stationsByName, searchStationQuery } = this.state;
     return (
-      <div
-        className={s({
-          container: true
-        })}
-      >
-        <div className={s({ searchFieldContainer: true })}>
-          <Input
-            inputLabel="Sök station"
-            inputPlaceholder="Exempelvis odenplan"
-            inputName="searchStation"
-            inputDisabled={false}
-            inputValue={searchStationQuery}
-            handleSubmit={this.handleSubmit}
-            submitButtonText={"SÖK"}
-            inputOnChange={value => this.handleStationSearch(value)}
-          />
-        </div>
+      <div>
+        <Input
+          inputLabel="Sök station"
+          inputPlaceholder="Exempelvis odenplan"
+          inputName="searchStation"
+          inputDisabled={false}
+          inputValue={searchStationQuery}
+          submit={this.handleSubmit}
+          submitButtonIcon={searchIcon}
+          inputOnChange={value => this.handleStationSearch(value)}
+        />
         <StationList
           newFavoriteStationSiteId={this.props.newFavoriteStationSiteId}
           myFavoriteStations={this.props.myFavoriteStations}

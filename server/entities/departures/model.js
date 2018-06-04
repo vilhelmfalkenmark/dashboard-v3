@@ -59,12 +59,16 @@ export default ({ connector, endpoints, database }) => {
    * GET DEPARTURES BY SITE ID FROM TRAFIC-LAB API
    */
   //////////////////////////////////////////////////
-  const getDeparturesByStationId = ({ siteId }) =>
+  const getDeparturesByStationId = (
+    { siteId, timeWindow } // default to departures within 30 mins if no timeWindow passed from client
+  ) =>
     connector
-      .getRequest({ path: endpoints.getDeparturesByStationId(siteId) })
+      .getRequest({
+        path: endpoints.getDeparturesByStationId({ siteId, timeWindow })
+      })
       .then(response => view(lensPath(["ResponseData"]), response));
 
-  //////////////////////////////////////////////////
+  ////////////////////////3//////////////////////////
   /**
    * GET ALL FAVORITE STATIONS FROM MONGO DB
    */

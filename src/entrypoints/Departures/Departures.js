@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ApolloConsumer } from "react-apollo";
 import WithCss from "layout/WithCss";
 
 import MyFavoriteStations from "components/MyFavoriteStations";
@@ -33,7 +32,7 @@ class Departures extends Component {
   constructor() {
     super();
     this.state = {
-      nav: "MyFavoriteStations",
+      nav: "SearchStation",
       geoLocation: null
     };
 
@@ -85,36 +84,32 @@ class Departures extends Component {
     const { nav } = this.state;
 
     return (
-      <ApolloConsumer>
-        {client => (
-          <div className={s({ container: true })}>
-            <nav className={s({ navBar: true })}>
-              {NAV_ITEMS.map((item, i) => (
-                <Button
-                  key={i}
-                  text={item.title}
-                  onClickCallback={() => this.setState({ nav: item.navPath })}
-                  icon={item.icon}
-                  type={
-                    nav === item.navPath
-                      ? BUTTON_BLUE_SOLID
-                      : BUTTON_LIGHT_BLUE_SOLID
-                  }
-                  className={s({ navButton: true })}
-                  iconClassName={s({ icon: true })}
-                  textClassName={s({ navText: true })}
-                  iconPositionLeft
-                />
-              ))}
-            </nav>
-            <div className={s({ content: true })}>
-              <div className={s({ overflow: true })}>
-                {this.getActiveComponent(client)}
-              </div>
-            </div>
+      <main className={s({ container: true })}>
+        <nav className={s({ navBar: true })}>
+          {NAV_ITEMS.map((item, i) => (
+            <Button
+              key={i}
+              text={item.title}
+              onClickCallback={() => this.setState({ nav: item.navPath })}
+              icon={item.icon}
+              type={
+                nav === item.navPath
+                  ? BUTTON_BLUE_SOLID
+                  : BUTTON_LIGHT_BLUE_SOLID
+              }
+              className={s({ navButton: true })}
+              iconClassName={s({ icon: true })}
+              textClassName={s({ navText: true })}
+              iconPositionLeft
+            />
+          ))}
+        </nav>
+        <div className={s({ content: true })}>
+          <div className={s({ overflow: true })}>
+            {this.getActiveComponent(this.props.client)}
           </div>
-        )}
-      </ApolloConsumer>
+        </div>
+      </main>
     );
   }
 }

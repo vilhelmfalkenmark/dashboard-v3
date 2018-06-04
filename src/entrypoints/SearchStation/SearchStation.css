@@ -1,8 +1,15 @@
+@import "mixins/grid";
 @import "variables/sizes";
 @import "variables/breakpoints";
+@import "mixins/card";
 
 .container {
-  width: 100%;
+  @mixin card;
+  @mixin entryPointContainer;
+}
+
+.overflow {
+  overflow-x: hidden;
 }
 
 .heading {

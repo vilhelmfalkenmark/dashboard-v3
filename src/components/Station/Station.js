@@ -3,6 +3,8 @@ import WithCss from "layout/WithCss";
 import arrowRight from "images/svg/arrow-right.svg";
 import heartOutlined from "images/svg/heart-outlined.svg";
 import heartSolid from "images/svg/heart-solid.svg";
+import Button from "components/Button";
+
 import SVG from "components/SVG";
 
 import s from "./Station.css";
@@ -19,38 +21,30 @@ const Station = ({
   return (
     <li className={s({ item: true })}>
       <div className={s({ left: true })}>
-        {stationIsFavorite ? (
-          <button
-            className={s({ favoriteButton: true, button: true })}
-            onClick={() =>
-              removeStationFromFavorites({
-                name: station.name,
-                siteId: station.siteId
-              })
-            }
-          >
-            <SVG
-              svg={heartSolid}
-              className={s({
-                heart: true,
-                heartSolid: true,
-                heartSolid_newFavoriteStation: newFavoriteStation
-              })}
-            />
-          </button>
-        ) : (
-          <button
-            className={s({ favoriteButton: true, button: true })}
-            onClick={() =>
-              saveStationAsFavorite({
-                name: station.name,
-                siteId: station.siteId
-              })
-            }
-          >
-            <SVG svg={heartOutlined} className={s({ heart: true })} />
-          </button>
-        )}
+        <Button
+          onClickCallback={
+            stationIsFavorite
+              ? () =>
+                  removeStationFromFavorites({
+                    name: station.name,
+                    siteId: station.siteId
+                  })
+              : () =>
+                  saveStationAsFavorite({
+                    name: station.name,
+                    siteId: station.siteId
+                  })
+          }
+          icon={stationIsFavorite ? heartSolid : heartOutlined}
+          className={s({ button: true })}
+          iconClassName={s({
+            heart: true,
+            heart_solid: stationIsFavorite,
+            heart_newFavoriteStation: newFavoriteStation
+          })}
+          circleButton
+          // shadowButton
+        />
       </div>
       <button
         className={s({ showDeparturesButton: true, button: true })}

@@ -14,24 +14,14 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-.container {
+.rootContainer {
   background-color: var(--color-background);
   color: var(--color-text);
   min-height: 100vh;
   line-height: 1.5;
   text-size-adjust: 100%;
-}
-
-.grid {
-  padding: 0;
   display: flex;
-  flex-flow: column wrap;
-
-  @media (--viewport-min-768) {
-    flex-flow: row wrap;
-
-    padding: var(--default-gutter);
-  }
+  align-items: flex-start;
 }
 
 *,

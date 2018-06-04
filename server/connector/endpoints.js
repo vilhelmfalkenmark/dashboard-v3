@@ -7,7 +7,7 @@ export default {
       )}&stationsonly=true`,
     searchStationsByCoordinates: ({ lon, lat }) =>
       `http://api.sl.se/api2/nearbystops.json?key=89ba22155d944429b9b90feb2f3d3645&originCoordLat=${lat}&originCoordLong=${lon}`,
-    getDeparturesByStationId: siteId =>
-      `http://api.sl.se/api2/realtimedeparturesv4.json?key=152b19caf669418c88b48ce2c2ba0cee&siteid=${siteId}&timewindow=30`
+    getDeparturesByStationId: ({ siteId, timeWindow }) =>
+      `http://api.sl.se/api2/realtimedeparturesv4.json?key=152b19caf669418c88b48ce2c2ba0cee&siteid=${siteId}&timewindow=${timeWindow}`
   }
 };

@@ -93,7 +93,8 @@ module.exports = {
       components: path.resolve(paths.appSrc, "components"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       images: path.resolve(paths.appSrc, "images"),
-      utils: path.resolve(paths.appSrc, "utils")
+      utils: path.resolve(paths.appSrc, "utils"),
+      router: path.resolve(paths.appSrc, "router")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -259,10 +260,9 @@ module.exports = {
     // e.g lmk, amk or srk
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({
-      "process.env.API_END_POINT": JSON.stringify(process.env.API_END_POINT),
+      "process.env.WS_END_POINT": JSON.stringify(process.env.WS_END_POINT),
+      "process.env.HTTP_END_POINT": JSON.stringify(process.env.HTTP_END_POINT),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-      // "process.env.BRAND": JSON.stringify(process.env.BRAND),
-      // "process.env.PROXY_WSS_URL": JSON.stringify(process.env.PROXY_WSS_URL),
     })
   ],
   // Some libraries import Node modules but don't use them in the browser.

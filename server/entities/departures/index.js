@@ -74,6 +74,7 @@ export default ({ connector, endpoints, database }) => {
 
     input siteIdQuery {
       siteId: String
+      timeWindow: Int
     }
 
     input stationNameQuery {

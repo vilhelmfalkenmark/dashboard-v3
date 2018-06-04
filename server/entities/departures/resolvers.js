@@ -19,8 +19,8 @@ export default ({ model }) => ({
      * @function getDeparturesByStationId
      *
      */
-    getDeparturesByStationId: (context, { params: { siteId } }) =>
-      model.getDeparturesByStationId({ siteId }),
+    getDeparturesByStationId: (context, { params: { siteId, timeWindow } }) =>
+      model.getDeparturesByStationId({ siteId, timeWindow }),
 
     /**
      * @function myFavoriteStations

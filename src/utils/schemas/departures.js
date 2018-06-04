@@ -31,8 +31,10 @@ export const MY_FAVORITE_STATIONS = gql`
 `;
 
 export const GET_DEPARTURES_BY_STATION_ID = gql`
-  query getDeparturesByStationId($siteId: String!) {
-    departures: getDeparturesByStationId(params: { siteId: $siteId }) {
+  query getDeparturesByStationId($siteId: String!, $timeWindow: Int!) {
+    departures: getDeparturesByStationId(
+      params: { siteId: $siteId, timeWindow: $timeWindow }
+    ) {
       metros: Metros {
         displayTime: DisplayTime
         lineNumber: LineNumber

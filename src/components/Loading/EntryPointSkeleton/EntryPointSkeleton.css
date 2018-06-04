@@ -1,0 +1,7 @@
+@import "mixins/grid";
+@import "mixins/card";
+
+.container {
+  @mixin card;
+  @mixin entryPointContainer;
+}

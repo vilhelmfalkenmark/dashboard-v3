@@ -1,0 +1,13 @@
+@import "mixins/grid";
+@import "mixins/card";
+@import "mixins/typography";
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+
+.container {
+  @mixin card;
+  @mixin entryPointContainer;
+
+  min-height: 40rem;
+}

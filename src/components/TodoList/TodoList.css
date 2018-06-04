@@ -1,0 +1,27 @@
+@import "variables/sizes";
+@import "variables/colors";
+@import "variables/breakpoints";
+@import "mixins/buttons";
+
+.list {
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0.1rem solid var(--color-border);
+  padding: var(--half-default-gutter) var(--half-default-gutter)
+    var(--half-default-gutter) 0;
+}
+
+.button.button {
+  background: var(--color-red);
+}
+
+.icon {
+  fill: var(--color-white);
+}

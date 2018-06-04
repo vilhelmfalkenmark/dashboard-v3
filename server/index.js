@@ -4,6 +4,10 @@ import bodyParser from "body-parser";
 import mongoDB from "mongodb";
 import path from "path";
 import cors from "cors";
+import { SubscriptionServer } from "subscriptions-transport-ws";
+import { execute, subscribe } from "graphql";
+import { createServer } from "http";
+
 import config from "./config";
 import schema from "./schema";
 
@@ -69,8 +73,22 @@ mongoDB.MongoClient.connect(
       })
     );
 
-    server.listen(PORT, () => {
-      console.log(`Lyssnar på port ${PORT} och ansluten till mongoDB`);
+    const ws = createServer(server);
+
+    ws.listen(PORT, () => {
+      console.log(`Apollo Server is now running on http://localhost:${PORT}`);
+      // Set up the WebSocket for handling GraphQL subscriptions
+      new SubscriptionServer(
+        {
+          execute,
+          subscribe,
+          schema: schema(database)
+        },
+        {
+          server: ws,
+          path: "/subscriptions"
+        }
+      );
     });
   }
 );

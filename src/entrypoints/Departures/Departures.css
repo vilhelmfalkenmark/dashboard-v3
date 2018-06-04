@@ -7,12 +7,9 @@
 
 .container {
   @mixin card;
+  @mixin entryPointContainer;
 
   min-height: 40rem;
-
-  @media (--viewport-min-768) {
-    @mixin flexGtrColSpan 2, 3, var(--default-gutter);
-  }
 }
 
 .navBar {

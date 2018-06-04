@@ -8,8 +8,8 @@ export default `type Query {
 
 type Mutation {
   _: Boolean
-}`;
+}
 
-// # type Subscription {
-// #   _: Boolean
-// # }
+ type Subscription {
+   _: Boolean
+ }`;
