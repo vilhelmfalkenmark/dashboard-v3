@@ -34,7 +34,10 @@ export default () => {
       }))
       .catch(error => {
         console.error("Det blev en error i getRequest => ", error);
-        return error;
+        return {
+          error: error,
+          message: "Det blev en error"
+        };
       });
 
   return {

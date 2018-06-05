@@ -8,6 +8,7 @@ import endpoints from "../connector/endpoints";
 
 // IMPORT ENTITIES
 import Departures from "./departures";
+import Weather from "./weather";
 import Todos from "./todos";
 
 export const pubsub = new PubSub();
@@ -32,8 +33,14 @@ export default database => {
     withFilter
   });
 
+  // Weather
+  const weatherEntity = Weather({
+    connector,
+    endpoints: endpoints.weather
+  });
+
   // All initialized entities should be listed in this array
-  const entitiesArray = [departuresEntity, todosEntity];
+  const entitiesArray = [departuresEntity, todosEntity, weatherEntity];
 
   const combinedResolve = arr =>
     arr.reduce(

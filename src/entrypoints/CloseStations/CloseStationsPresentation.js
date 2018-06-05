@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import StationList from "components/StationList";
 import WithDepartureList from "components/WithDepartureList";
+import RingSpinner from "components/Loading/RingSpinner";
 import { pluckLongitudeAndLatitude } from "utils/selectors/departures";
 
 import { SEARCH_STATIONS_BY_COORDINATES } from "utils/schemas/departures";
@@ -49,45 +50,48 @@ class CloseStationsPresentation extends Component {
 
     if (!geoLocation) {
       return (
-        <div className={s({ presentationContainer: true })}>
-          Laddar kordinater
-        </div>
+        <RingSpinner
+          text={"Laddar din plats"}
+          className={s({ spinner: true })}
+        />
       );
     }
 
     return (
-      <div className={s({ presentationContainer: true })}>
-        <Query
-          query={SEARCH_STATIONS_BY_COORDINATES}
-          variables={{
-            lon: pluckLongitudeAndLatitude({
-              position: geoLocation,
-              type: "lon"
-            }),
-            lat: pluckLongitudeAndLatitude({
-              position: geoLocation,
-              type: "lat"
-            })
-          }}
-        >
-          {({ data, error, loading, refetch }) => {
-            if (loading) return <p>Laddar</p>;
-            if (error) return `Error!: ${error}`;
+      <Query
+        query={SEARCH_STATIONS_BY_COORDINATES}
+        variables={{
+          lon: pluckLongitudeAndLatitude({
+            position: geoLocation,
+            type: "lon"
+          }),
+          lat: pluckLongitudeAndLatitude({
+            position: geoLocation,
+            type: "lat"
+          })
+        }}
+      >
+        {({ data, error, loading, refetch }) => {
+          if (loading)
             return (
-              <StationList
-                newFavoriteStationSiteId={this.props.newFavoriteStationSiteId}
-                myFavoriteStations={this.props.myFavoriteStations}
-                stations={data.stationsByCoordinates}
-                saveStationAsFavorite={this.handleSaveStationsAsFavorite}
-                removeStationFromFavorites={
-                  this.handleRemoveStationFromFavorites
-                }
-                showDepartureList={showDepartureList}
+              <RingSpinner
+                text={"Laddar nära avgångar"}
+                className={s({ spinner: true })}
               />
             );
-          }}
-        </Query>
-      </div>
+          if (error) return `Error!: ${error}`;
+          return (
+            <StationList
+              newFavoriteStationSiteId={this.props.newFavoriteStationSiteId}
+              myFavoriteStations={this.props.myFavoriteStations}
+              stations={data.stationsByCoordinates}
+              saveStationAsFavorite={this.handleSaveStationsAsFavorite}
+              removeStationFromFavorites={this.handleRemoveStationFromFavorites}
+              showDepartureList={showDepartureList}
+            />
+          );
+        }}
+      </Query>
     );
   }
 }

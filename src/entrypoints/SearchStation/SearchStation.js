@@ -6,8 +6,10 @@ import s from "./SearchStation.css";
 
 const SearchStation = ({ client }) => (
   <main className={s({ container: true })}>
-    <div className={s({ overflow: true })}>
-      <SearchStationPresentation client={client} />
+    <div className={s({ content: true })}>
+      <div className={s({ overflow: true })}>
+        <SearchStationPresentation client={client} />
+      </div>
     </div>
   </main>
 );

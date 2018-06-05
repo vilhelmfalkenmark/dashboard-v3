@@ -1,7 +1,5 @@
 export default ({ model }) => ({
   Query: {
-    // TEST
-    test: (context, { params: { id } }) => model.test(id),
     /**
      * @function searchStationByName
      *

@@ -6,14 +6,7 @@ export default ({ connector, endpoints, database }) => {
 
   return {
     resolvers: Resolvers({ model }),
-    typeDefs: `type Person {
-      id: Int!
-      name: String
-    }
-    
-    input personId {
-      id: Int!
-    }
+    typeDefs: `
 
     ##### TYPES #####
     type Departures {
@@ -81,7 +74,7 @@ export default ({ connector, endpoints, database }) => {
       name: String!
     }
 
-    input stationCoordinateQuery {
+    input stationCoordinatesQuery {
       lon: Float!
       lat: Float!
     }
@@ -97,9 +90,8 @@ export default ({ connector, endpoints, database }) => {
     }
 
     extend type Query {
-      test(params: personId): Person
       searchStationByName(params: stationNameQuery): [Station]
-      searchStationsByCoordinates(params: stationCoordinateQuery): [StationByCoordinate]
+      searchStationsByCoordinates(params: stationCoordinatesQuery): [StationByCoordinate]
       getDeparturesByStationId(params: siteIdQuery): Departures
       myFavoriteStations: [FavoriteStation]
     }`

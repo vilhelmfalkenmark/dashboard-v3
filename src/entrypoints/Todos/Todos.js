@@ -89,53 +89,55 @@ class Todos extends Component {
 
     return (
       <main className={s({ container: true })}>
-        <Query query={MY_TODOS}>
-          {({ subscribeToMore, data, error, loading, refetch }) => {
-            if (loading) return <p>Laddar todolist</p>;
-            if (error) return `Error!: ${error}`;
-            return [
-              <Input
-                key={1}
-                inputLabel="Ny att göra"
-                inputPlaceholder="Exempelvis Klippa gräset"
-                inputName="newTodo"
-                inputDisabled={false}
-                inputValue={newTodo}
-                submit={this.submitNewTodo}
-                submitButtonIcon={plusIcon}
-                inputOnChange={value => this.handleNewTodo(value)}
-              />,
-              <TodoList
-                key={2}
-                myTodos={data.myTodos}
-                deleteTodo={this.handleDeleteTodo}
-                subscribeToChanges={() =>
-                  subscribeToMore({
-                    document: TODO_CHANGED_SUBSCRIPTION,
-                    updateQuery: (prev, { subscriptionData }) => {
-                      if (!subscriptionData.data) return prev;
-                      const updatedTodo = subscriptionData.data.todoChanged;
+        <div className={s({ content: true })}>
+          <Query query={MY_TODOS}>
+            {({ subscribeToMore, data, error, loading, refetch }) => {
+              if (loading) return <p>Laddar todolist</p>;
+              if (error) return `Error!: ${error}`;
+              return [
+                <Input
+                  key={1}
+                  inputLabel="Ny att göra"
+                  inputPlaceholder="Exempelvis Klippa gräset"
+                  inputName="newTodo"
+                  inputDisabled={false}
+                  inputValue={newTodo}
+                  submit={this.submitNewTodo}
+                  submitButtonIcon={plusIcon}
+                  inputOnChange={value => this.handleNewTodo(value)}
+                />,
+                <TodoList
+                  key={2}
+                  myTodos={data.myTodos}
+                  deleteTodo={this.handleDeleteTodo}
+                  subscribeToChanges={() =>
+                    subscribeToMore({
+                      document: TODO_CHANGED_SUBSCRIPTION,
+                      updateQuery: (prev, { subscriptionData }) => {
+                        if (!subscriptionData.data) return prev;
+                        const updatedTodo = subscriptionData.data.todoChanged;
 
-                      if (updatedTodo.action === "TODO_ADDED") {
-                        return Object.assign({}, prev, {
-                          myTodos: [updatedTodo, ...prev.myTodos]
-                        });
-                      } else if (updatedTodo.action === "TODO_DELETED") {
-                        return Object.assign({}, prev, {
-                          myTodos: prev.myTodos.filter(
-                            todo => todo.id !== updatedTodo.id
-                          )
-                        });
+                        if (updatedTodo.action === "TODO_ADDED") {
+                          return Object.assign({}, prev, {
+                            myTodos: [updatedTodo, ...prev.myTodos]
+                          });
+                        } else if (updatedTodo.action === "TODO_DELETED") {
+                          return Object.assign({}, prev, {
+                            myTodos: prev.myTodos.filter(
+                              todo => todo.id !== updatedTodo.id
+                            )
+                          });
+                        }
+
+                        return prev;
                       }
-
-                      return prev;
-                    }
-                  })
-                }
-              />
-            ];
-          }}
-        </Query>
+                    })
+                  }
+                />
+              ];
+            }}
+          </Query>
+        </div>
       </main>
     );
   }

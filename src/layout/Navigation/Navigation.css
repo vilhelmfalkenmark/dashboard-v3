@@ -3,11 +3,19 @@
 @import "variables/breakpoints";
 
 .container {
-  min-width: 25rem;
+  width: 10rem;
+
   background-color: var(--color-white);
   height: 100vh;
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
-    0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.12);
+
+  @media (--viewport-min-992) {
+    width: 25rem;
+  }
 }
 
 .routeGroup {
@@ -15,8 +23,32 @@
 }
 
 .routeGroupTitle {
+  color: var(--color-dark-blue);
   margin-bottom: var(--default-gutter);
   padding: 0 var(--default-gutter);
+  font-size: var(--font-size-l);
+  display: none;
+
+  @media (--viewport-min-992) {
+    display: block;
+  }
+}
+
+.navItem {
+  border-bottom: 0.1rem solid var(--color-border);
+}
+
+.icon.icon {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--color-dark-blue);
+  margin: 0 auto;
+
+  @media (--viewport-min-992) {
+    margin: 0 var(--default-gutter);
+    height: 1.8rem;
+    width: 1.8rem;
+  }
 }
 
 .link.link {
@@ -25,19 +57,31 @@
   text-align: left;
   height: 5rem;
   color: var(--color-text);
-  border-bottom: 0.1rem solid var(--color-border);
   justify-content: flex-end;
 
   background: var(--color-white);
 
   &_isActive {
-    background: var(--color-grey-light);
+    background: var(--color-dark-blue);
+    color: var(--color-white);
+
+    .icon.icon {
+      fill: var(--color-white);
+    }
   }
 }
 
-.icon.icon {
-  height: 1.7rem;
-  width: 1.7rem;
-  fill: var(--color-green);
-  margin: 0 var(--default-gutter);
+.linkText {
+  display: none;
+
+  @media (--viewport-min-992) {
+    display: block;
+  }
+}
+
+.version {
+  width: 100%;
+  padding: var(--default-gutter);
+  font-size: var(--font-size-s);
+  text-align: center;
 }

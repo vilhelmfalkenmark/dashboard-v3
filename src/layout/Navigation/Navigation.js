@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import Button from "components/Button";
 import routes from "router/routes";
+import packageJSON from "../../../package.json";
 
 import WithCss from "layout/WithCss";
 
@@ -23,6 +24,7 @@ const Navigation = () => (
                       slug: route.slug
                     }}
                     className={s({ link: true })}
+                    textClassName={s({ linkText: true })}
                     navLinkActiveClassName={s({ link_isActive: true })}
                     iconClassName={s({ icon: true })}
                     text={route.navTitle}
@@ -36,6 +38,9 @@ const Navigation = () => (
         ))}
       </ul>
     </nav>
+    <span className={s({ version: true })}>{`Version ${
+      packageJSON.version
+    }`}</span>
   </header>
 );
 

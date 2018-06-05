@@ -6,8 +6,12 @@
 @import "variables/breakpoints";
 
 .container {
-  @mixin card;
   @mixin entryPointContainer;
 
   min-height: 40rem;
+}
+
+.content {
+  @mixin card;
+  @mixin entryPointContent;
 }

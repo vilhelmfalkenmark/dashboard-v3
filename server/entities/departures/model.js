@@ -16,7 +16,6 @@ const FAVORITE_STATIONS_COLLECTION = "favorite_stations";
 // };
 
 export default ({ connector, endpoints, database }) => {
-  const test = ({ token }) => ({ name: "Ville", id: 4 });
   /**
    * @function searchStationByName
    * @param {String} name
@@ -134,7 +133,6 @@ export default ({ connector, endpoints, database }) => {
   };
 
   return {
-    test,
     searchStationByName,
     searchStationsByCoordinates,
     getDeparturesByStationId,

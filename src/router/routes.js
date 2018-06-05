@@ -53,6 +53,15 @@ const Todos = universal(
     loading: <EntryPointSkeleton />
   }
 );
+// Weather
+const Weather = universal(
+  () => import(/* webpackChunkName: 'weather' */ "entrypoints/Weather"),
+  {
+    resolve: () => require.resolveWeak("entrypoints/Weather"),
+    chunkName: "weather",
+    loading: <EntryPointSkeleton />
+  }
+);
 
 //////////////////////////////////////////////////
 /**
@@ -91,6 +100,20 @@ export const DEPARTURES_GROUP = {
 
 export const TODO_GROUP = {
   title: "Att-göra-lista",
+  routes: [
+    {
+      key: 15,
+      exact: true,
+      navTitle: "Att-göra-lista",
+      slug: "/todos/",
+      component: Todos,
+      icon: heartSolidIcon
+    }
+  ]
+};
+
+export const WEATHER_GROUP = {
+  title: "Väder",
   routes: [
     {
       key: 15,

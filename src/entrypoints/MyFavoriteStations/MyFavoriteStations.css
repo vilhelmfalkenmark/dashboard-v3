@@ -4,8 +4,12 @@
 @import "mixins/card";
 
 .container {
-  @mixin card;
   @mixin entryPointContainer;
+}
+
+.content {
+  @mixin card;
+  @mixin entryPointContent;
 }
 
 .heading {

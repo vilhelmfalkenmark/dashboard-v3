@@ -4,10 +4,22 @@
 @import "mixins/card";
 
 .container {
-  @mixin card;
   @mixin entryPointContainer;
+}
+
+.content {
+  @mixin card;
+  @mixin entryPointContent;
 }
 
 .overflow {
   overflow-x: hidden;
+  flex: 1 0;
+}
+
+.spinner {
+  min-height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
