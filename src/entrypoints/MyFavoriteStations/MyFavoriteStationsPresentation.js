@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import StationList from "components/StationList";
-import WithDepartureList from "components/WithDepartureList";
+import WithDepartureList from "hocs/WithDepartureList";
 
 import s from "./MyFavoriteStations.css";
 

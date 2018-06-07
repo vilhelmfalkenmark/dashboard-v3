@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Button from "components/Button";
 import heartSolidIcon from "images/svg/heart-solid.svg";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import s from "./TodoList.css";
 
 class TodoList extends Component {

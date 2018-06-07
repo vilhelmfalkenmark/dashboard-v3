@@ -1,5 +1,5 @@
 import React from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import arrowRight from "images/svg/arrow-right.svg";
 import heartOutlined from "images/svg/heart-outlined.svg";
 import heartSolid from "images/svg/heart-solid.svg";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import RingSpinner from "components/Loading/RingSpinner";
 import { pluckLongitudeAndLatitude } from "utils/selectors/departures";
 

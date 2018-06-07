@@ -4,7 +4,7 @@ import Button from "components/Button";
 import routes from "router/routes";
 import packageJSON from "../../../package.json";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 
 import s from "./Navigation.css";
 

@@ -2,7 +2,7 @@ import React from "react";
 import Station from "components/Station";
 import stationIsAlreadyFavorite from "utils/selectors/departures";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import s from "./StationList.css";
 
 const StationList = ({

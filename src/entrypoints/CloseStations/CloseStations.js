@@ -1,5 +1,5 @@
 import React from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import CloseStationsPresentation from "./CloseStationsPresentation";
 
 import s from "./CloseStations.css";

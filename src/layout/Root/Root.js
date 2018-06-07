@@ -1,29 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import routes from "router/routes";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
+import WithClient from "hocs/WithClient";
 import { ApolloConsumer } from "react-apollo";
 import Navigation from "layout/Navigation";
 
 import s from "./Root.css";
-
-function withClient(WrappedComponent, client, geoLocation, getGeoLocation) {
-  return class extends Component {
-    render() {
-      if (!client) {
-        return null;
-      }
-      return (
-        <WrappedComponent
-          {...this.props}
-          client={client}
-          geoLocation={geoLocation}
-          getGeoLocation={getGeoLocation}
-        />
-      );
-    }
-  };
-}
 
 export class RootComponent extends Component {
   constructor() {
@@ -73,7 +56,7 @@ export class RootComponent extends Component {
                     key={route.key}
                     exact={route.exact}
                     path={route.slug}
-                    component={withClient(
+                    component={WithClient(
                       route.component,
                       client,
                       this.state.geoLocation,

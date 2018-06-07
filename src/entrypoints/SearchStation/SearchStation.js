@@ -1,5 +1,5 @@
 import React from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import SearchStationPresentation from "./SearchStationPresentation";
 
 import s from "./SearchStation.css";

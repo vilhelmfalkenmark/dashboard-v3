@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import Input from "components/Input";
 import TodoList from "components/TodoList";
 import plusIcon from "images/svg/plus.svg";

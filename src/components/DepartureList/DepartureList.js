@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import DepartureListByTransport from "components/DepartureListByTransport";
 import arrowLeft from "images/svg/arrow-left.svg";
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { NavLink } from "react-router-dom";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 
 import SVG from "components/SVG";
 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Input from "components/Input";
 import StationList from "components/StationList";
-import WithDepartureList from "components/WithDepartureList";
+import WithDepartureList from "hocs/WithDepartureList";
 import searchIcon from "images/svg/search.svg";
 
 import { SEARCH_STATION_BY_NAME } from "utils/schemas/departures";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import s from "./SearchStation.css";
 
 class SearchStation extends Component {

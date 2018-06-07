@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import Button from "components/Button";
 
 import s from "./Input.css";

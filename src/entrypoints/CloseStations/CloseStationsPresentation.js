@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import StationList from "components/StationList";
-import WithDepartureList from "components/WithDepartureList";
+import WithDepartureList from "hocs/WithDepartureList";
 import RingSpinner from "components/Loading/RingSpinner";
 import { pluckLongitudeAndLatitude } from "utils/selectors/departures";
 
 import { SEARCH_STATIONS_BY_COORDINATES } from "utils/schemas/departures";
 
-import WithCss from "layout/WithCss";
+import WithCss from "hocs/WithCss";
 import s from "./CloseStations.css";
 
 class CloseStationsPresentation extends Component {
