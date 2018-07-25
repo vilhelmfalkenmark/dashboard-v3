@@ -13,29 +13,6 @@
   border: none;
   outline: none;
 
-  &:before {
-    content: "";
-    position: absolute;
-    background: black;
-    opacity: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-    transition: opacity 0.2s ease;
-  }
-
-  &:hover {
-    &:before {
-      opacity: 0.15;
-    }
-  }
-
-  &:active {
-    &:before {
-      opacity: 0.25;
-    }
-  }
-
   &_circleButton {
     height: 4rem;
     width: 4rem;
